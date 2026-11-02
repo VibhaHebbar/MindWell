@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/mindwell}
+    username: ${DB_USERNAME:mindwell_app}
+    password: ${DB_PASSWORD:local-dev-password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+app:
+  jwt:
+    secret: ${JWT_SECRET:local-development-secret-change-this-32-byte-minimum}
+    expiration-ms: 86400000
+  cors:
+    allowed-origin: ${CORS_ALLOWED_ORIGIN:http://localhost:5173}
